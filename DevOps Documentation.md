@@ -28,7 +28,7 @@ An application lifecycle management system is important because it helps develop
 **Deployment**: The deployment phase is the final step in the software development life cycle and delivers the final product to the customer in a live production environment. After the product deploys, the product is ready for customers to use.
 **Maintenance**: The maintenance phase of the SDLC occurs after the product is in full operation. Maintenance of software can include software upgrades, repairs, and fixes of the software if it breaks. Software applications often need to be upgraded or integrated with new systems the customer deploys.
 
-![alt text](<SDLC 01.jpg>)
+![alt text](<images/SDLC 01.jpg>)
 
 	There are many ways to implement SDLC into your project. The most common models are:
 **Waterfall**
