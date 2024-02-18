@@ -34,6 +34,7 @@ This project aim is to create a server using the LAMP (Linux, Apache, MySQL, PHP
     sudo mysql_secure_installation
     ```
     ![alt text](images/mysql%20secure%20installation.png)
+    
     The password set in the previous line will be promted, then we select the level of password validation, level 1 will do. This will prompt you to change the inital password you set, as this setup will disable remote root login. After the setup, to avoid getting authentication error the line to run MySQL will be:
     ```
     sudo mysql -p
@@ -106,5 +107,5 @@ Create the directory:
 
     ![alt text](images/new%20landing%20page%20.png)
 
-    
+
 
