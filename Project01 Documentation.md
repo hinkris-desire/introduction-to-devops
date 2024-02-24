@@ -13,6 +13,15 @@ This project aim is to create a server using the LAMP (Linux, Apache, MySQL, PHP
     sudo apt install apache2
     ```
     We then run this line to install apache2.
+    ```
+    sudo ufw allow in "Apache"
+    ```
+    ```
+    sudo ufw enable
+    ```
+    ```
+    sudo ufw status
+    ```
     ![alt text](images/apache%20running.png)
     Once its active, we check to see the landing page of the domain i.e. our ip address.
     ![alt text](images/landing%20page%20for%20the%20web%20swrver.png)
