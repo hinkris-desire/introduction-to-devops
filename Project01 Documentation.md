@@ -116,5 +116,31 @@ Create the directory:
 
     ![alt text](images/new%20landing%20page%20.png)
 
+With the default DirectoryIndex settings on Apache, a file named index.html will always take precedence over an index.php file, you’ll need to edit the /etc/apache2/mods-enabled/dir.conf file and modify the order in which the index.php file is listed within the DirectoryIndex directive using the command:
+```
+sudo nano /etc/apache2/mods-enabled/dir.conf
+```
+
+Then add the index.php file in the directoryindex
+
+![alt text](<images/add php to directory index.png>)
+
+After saving then reload the Apache so the changes takes effect.
+- Testing the PHP processing, we create a PHP test script to confirm that Apache is able to handle and process requests for PHP files.  
+    Create an index.php file in the web root folder:
+    ```
+    vi /var/www/your_domain/info.php
+    ```
+    ```
+    <?php
+    phpinfo();
+    ```
+
+    This line will print a page that provides information about your server from the perspective of PHP.
+    ![alt text](<images/PHP info.jpeg>)
 
 
+
+
+
+    
