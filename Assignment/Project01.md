@@ -22,9 +22,12 @@ This project aim is to create a server using the LAMP (Linux, Apache, MySQL, PHP
     ```
     sudo ufw status
     ```
-    ![alt text](images/apache%20running.png)
+
+    ![alt text](<../images/apache running.png>)
+
     Once its active, we check to see the landing page of the domain i.e. our ip address.
-    ![alt text](images/landing%20page%20for%20the%20web%20swrver.png)
+   
+    ![alt text](<../images/landing page for the web swrver.png>)
 
 - Install database manager MySQL and secure it. We'll use the script:
     ```
@@ -33,7 +36,9 @@ This project aim is to create a server using the LAMP (Linux, Apache, MySQL, PHP
     ```
     sudo msql
     ```
-    ![alt text](images/mysql%20installed.png)
+
+    ![alt text](<../images/mysql installed.png>)
+
     ```
     ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; [to set a default password]
 
@@ -42,7 +47,7 @@ This project aim is to create a server using the LAMP (Linux, Apache, MySQL, PHP
     ```
     sudo mysql_secure_installation
     ```
-    ![alt text](images/mysql%20secure%20installation.png)
+    ![alt text](<../images/mysql secure installation.png>)
     
     The password set in the previous line will be promted, then we select the level of password validation, level 1 will do. This will prompt you to change the inital password you set, as this setup will disable remote root login. After the setup, to avoid getting authentication error the line to run MySQL will be:
     ```
@@ -56,7 +61,9 @@ This project aim is to create a server using the LAMP (Linux, Apache, MySQL, PHP
     ```
     sudo php -v
     ```
-    ![alt text](images/php%20installed.png)
+    
+    ![alt text](<../images/php installed.png>)
+
 - Create a virtual host, after installing apache, a default landing page is setup in the directory var/www/html, if we're gong to create multiple virtual host, we then don't need to edit or replace the content in the default directory as we'll use it as backup and default directory whenever a client request doesn't match any other site. 
 Create the directory:
     ```
@@ -70,7 +77,8 @@ Create the directory:
     ```
     sudo vi /etc/apache2/sites-available/your_domain.conf
     ```
-    ![alt text](images/create%20a%20virtual%20domain.png)
+    
+    ![alt text](<../images/create a virtual domain.png>)
     ```
     <VirtualHost *:80>
         ServerName your_domain
@@ -81,7 +89,7 @@ Create the directory:
         CustomLog ${APACHE_LOG_DIR}/access.log combined
     </VirtualHost>
     ```
-    ![alt text](images/create%20a%20virtual%20domain.png)
+
     
     Now we enable the new virtual host:
     ```
@@ -95,7 +103,7 @@ Create the directory:
     ```
     sudo apache2ctl configtest
     ```
-    ![alt text](images/virtual%20server%20setup.png)
+    ![alt text](<../images/virtual server setup.png>)
     Having finished with all the setup and config, our web root var/www/your_domain is still empty so we create a mock index.html file
     ```
     vi /var/www/your_domain/index.html
@@ -114,7 +122,7 @@ Create the directory:
     ```
     Once that is done then we can reload the domain name or IP address to see the new landing page.
 
-    ![alt text](images/new%20landing%20page%20.png)
+    ![alt text](<../images/new landing page .png>)
 
 With the default DirectoryIndex settings on Apache, a file named index.html will always take precedence over an index.php file, you’ll need to edit the /etc/apache2/mods-enabled/dir.conf file and modify the order in which the index.php file is listed within the DirectoryIndex directive using the command:
 ```
@@ -123,7 +131,7 @@ sudo nano /etc/apache2/mods-enabled/dir.conf
 
 Then add the index.php file in the directoryindex
 
-![alt text](<images/add php to directory index.png>)
+![alt text](<../images/add php to directory index.png>)
 
 After saving then reload the Apache so the changes takes effect.
 - Testing the PHP processing, we create a PHP test script to confirm that Apache is able to handle and process requests for PHP files.  
@@ -137,7 +145,8 @@ After saving then reload the Apache so the changes takes effect.
     ```
 
     This line will print a page that provides information about your server from the perspective of PHP.
-    ![alt text](<images/PHP info.jpeg>)
+
+    ![alt text](<../images/PHP info.jpeg>)
 
 
 
