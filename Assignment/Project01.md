@@ -149,6 +149,41 @@ After saving then reload the Apache so the changes takes effect.
     ![alt text](<../images/PHP info.jpeg>)
 
 
+# SERVERS: Setting up a LEMP STACK
+
+LEMP [Linux, Nginx, MySQL, PHP], Much like the LAMP, follows the same process with the change being that we'll be using Nginx as the web server.
+
+Just like we did with LAMP, 
+Create a EC2 instance with Ubuntu as the OS.
+Then update the package manager 
+```
+sudo apt update
+```
+
+
+- Installing Nginx Web Server, 
+    ```
+    sudo apt install nginx
+    ```
+    then enable uncomplicated firewall
+    ```
+    sudo ufw enable
+    ```
+    and run the command below to allow connections to Nginx
+    ```
+    sudo ufw allow 'Nginx HTTP'
+    ```
+    then check the status using,
+    ```
+    sudo ufw status
+    ```
+    ![alt text](<../images/ufw status nginx.png>)
+    
+    We'll then check if the server is running by accessing the VM IP address on our web browser.
+
+    ![alt text](<../images/default landing page for nginx.png>)
+
+    
 
 
 
