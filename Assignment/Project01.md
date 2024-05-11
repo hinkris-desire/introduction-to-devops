@@ -244,11 +244,11 @@ sudo apt update
     ```
     sudo nano /etc/nginx/sites-available/your_domain
     ```
-    Paste the configuration script in the file created
+    Paste the configuration script in the file created, edit the domain name to yours and repalce the php-fpm version (in my case its version 8.3) 
     ```
     server {
         listen 80;
-        root /var/www/html;
+        root /var/www/your_domain;
         index index.php index.html index.htm index.nginx-debian.html;
         server_name your_domain;
 
@@ -317,7 +317,18 @@ sudo apt update
     phpinfo();
     ```
     Now we can visit the page via the server domain name or the IP address.
+
+    ```
+    http://ip-address/info.php
+    ```
+    ![alt text](<../images/php config page.png>)
+
+
+
     
+
+
+
 
 
 
