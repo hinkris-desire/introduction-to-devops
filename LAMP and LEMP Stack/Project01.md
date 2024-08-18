@@ -23,11 +23,11 @@ This project aim is to create a server using the LAMP (Linux, Apache, MySQL, PHP
     sudo ufw status
     ```
 
-    ![alt text](<../images/apache running.png>)
+    ![alt text](<images/apache running.png>)
 
     Once its active, we check to see the landing page of the domain i.e. our ip address.
    
-    ![alt text](<../images/landing page for the web swrver.png>)
+    ![alt text](<images/landing page for the web swrver.png>)
 
 - Install database manager MySQL and secure it. We'll use the script:
     ```
@@ -37,7 +37,7 @@ This project aim is to create a server using the LAMP (Linux, Apache, MySQL, PHP
     sudo msql
     ```
 
-    ![alt text](<../images/mysql installed.png>)
+    ![alt text](<images/mysql installed.png>)
 
     ```
     ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; [to set a default password]
@@ -47,7 +47,7 @@ This project aim is to create a server using the LAMP (Linux, Apache, MySQL, PHP
     ```
     sudo mysql_secure_installation
     ```
-    ![alt text](<../images/mysql secure installation.png>)
+    ![alt text](<images/mysql secure installation.png>)
     
     The password set in the previous line will be promted, then we select the level of password validation, level 1 will do. This will prompt you to change the inital password you set, as this setup will disable remote root login. After the setup, to avoid getting authentication error the line to run MySQL will be:
     ```
@@ -62,7 +62,7 @@ This project aim is to create a server using the LAMP (Linux, Apache, MySQL, PHP
     sudo php -v
     ```
     
-    ![alt text](<../images/php installed.png>)
+    ![alt text](<images/php installed.png>)
 
 - Create a virtual host, after installing apache, a default landing page is setup in the directory var/www/html, if we're gong to create multiple virtual host, we then don't need to edit or replace the content in the default directory as we'll use it as backup and default directory whenever a client request doesn't match any other site. 
 Create the directory:
@@ -78,7 +78,7 @@ Create the directory:
     sudo vi /etc/apache2/sites-available/your_domain.conf
     ```
     
-    ![alt text](<../images/create a virtual domain.png>)
+    ![alt text](<images/create a virtual domain.png>)
     ```
     <VirtualHost *:80>
         ServerName your_domain
@@ -103,7 +103,7 @@ Create the directory:
     ```
     sudo apache2ctl configtest
     ```
-    ![alt text](<../images/virtual server setup.png>)
+    ![alt text](<images/virtual server setup.png>)
     Having finished with all the setup and config, our web root var/www/your_domain is still empty so we create a mock index.html file
     ```
     vi /var/www/your_domain/index.html
@@ -122,7 +122,7 @@ Create the directory:
     ```
     Once that is done then we can reload the domain name or IP address to see the new landing page.
 
-    ![alt text](<../images/new landing page .png>)
+    ![alt text](<images/new landing page .png>)
 
 With the default DirectoryIndex settings on Apache, a file named index.html will always take precedence over an index.php file, you’ll need to edit the /etc/apache2/mods-enabled/dir.conf file and modify the order in which the index.php file is listed within the DirectoryIndex directive using the command:
 ```
@@ -131,7 +131,7 @@ sudo nano /etc/apache2/mods-enabled/dir.conf
 
 Then add the index.php file in the directoryindex
 
-![alt text](<../images/add php to directory index.png>)
+![alt text](<images/add php to directory index.png>)
 
 After saving then reload the Apache so the changes takes effect.
 - Testing the PHP processing, we create a PHP test script to confirm that Apache is able to handle and process requests for PHP files.  
@@ -146,7 +146,7 @@ After saving then reload the Apache so the changes takes effect.
 
     This line will print a page that provides information about your server from the perspective of PHP.
 
-    ![alt text](<../images/PHP info.jpeg>)
+    ![alt text](<images/PHP info.jpeg>)
 
 
 # SERVERS: Setting up a LEMP STACK
@@ -177,17 +177,17 @@ sudo apt update
     ```
     sudo ufw status
     ```
-    ![alt text](<../images/ufw status nginx.png>)
+    ![alt text](<images/ufw status nginx.png>)
     
     We'll then check if the server is running by accessing the VM IP address on our web browser.
 
-    ![alt text](<../images/default landing page for nginx.png>)
+    ![alt text](<images/default landing page for nginx.png>)
 
     - Installing the database manager MySQL,
     ```
     sudo apt install mysql-server
     ```
-    ![alt text](<../images/mysql installe on LEMP.png>)
+    ![alt text](<images/mysql installe on LEMP.png>)
 
     Now to complete the configuration,
     ```
@@ -202,7 +202,7 @@ sudo apt update
     ```
     SELECT user,authentication_string,plugin,host FROM mysql.user;
     ```
-    ![alt text](<../images/mysql auth in LEMP.png>)
+    ![alt text](<images/mysql auth in LEMP.png>)
 
     The current authentication method is auth_socket, so to change it to native password, we run the command 
     ,
@@ -217,13 +217,13 @@ sudo apt update
     ```
     SELECT user,authentication_string,plugin,host FROM mysql.user;
     ```
-    ![alt text](<../images/mysql auth method list.png>)
+    ![alt text](<images/mysql auth method list.png>)
 
     Once that is successfully configured, we'll have to use the command below to run MySql
     ```
     sudo mysql -p
     ```
-    ![alt text](<../images/mysql running in LEMP.png>)
+    ![alt text](<images/mysql running in LEMP.png>)
 
     Nginx does not contain native PHP processing like some other web servers, we will need to install php-fpm [fastCGI process manager].
 
@@ -231,13 +231,12 @@ sudo apt update
     ``` 
     sudo add-apt-repository universe
     ```
-    ![alt text](<../images/additional repo .png>)
-
+    ![alt text](<images/additional repo .png>)
     We then install php-fpm together with a helper package php-mysql which allows php to connect with the database backend.
     ```
     sudo apt install php-fpm php-mysql
     ```
-    ![alt text](<../images/php-fpm together with php-mysql.png>)
+    ![alt text](<images/php-fpm together with php-mysql.png>)
 
     Having installed all the LEMP components [Linux OS, Nginx, MySql, PHP], we still need to make some configurations in order to program Nginx to use the PHP processor for dynamic contents.
     Thsi is done on the server block/ virtual host on the web server, to do this we create a new server block in the directory /etc/nginx/sites-available/.
@@ -266,7 +265,7 @@ sudo apt update
         }
     }
     ```
-    ![alt text](<../images/Nginx config file.png>)
+    ![alt text](<images/Nginx config file.png>)
 
     Here’s what each directives and location blocks does:
 
@@ -301,7 +300,7 @@ sudo apt update
     ```
     sudo nginx -t
     ```
-    ![alt text](<../images/test nginx new config file.png>)
+    ![alt text](<images/test nginx new config file.png>)
     We then reload the Nginx to update the changes made.
     ```
     sudo systemctl reload nginx
@@ -321,7 +320,7 @@ sudo apt update
     ```
     http://ip-address/info.php
     ```
-    ![alt text](<../images/php config page.png>)
+    ![alt text](<images/php config page.png>)
 
 
 
